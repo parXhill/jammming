@@ -1,9 +1,10 @@
 import React from 'react';
 
-export default function SearchBar() {
+export default function SearchBar({searchInput, handleSearchInput, handleSubmit}) {
     
     return (
-    <div>
-    <input type="search" placeholder="Search..."/>
-    </div>);
+    <form onSubmit={handleSubmit} action="/search" method="GET">
+        <input type="search" name="query" placeholder="Search..." value={searchInput} onChange={handleSearchInput}/>
+        <button type="submit">Go!</button>    
+    </form>);
 }
