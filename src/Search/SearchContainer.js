@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import SearchBar from "./SearchBar";
 import Results from "./Results";
+import './SearchContainer.css';
 
 const accessToken = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
 console.log(accessToken);
@@ -9,8 +10,8 @@ console.log(accessToken);
 export default function SearchContainer() {
 
     const [searchInput, setSearchInput] = useState("");
-    const [trackNames, setTrackNames] = useState("");
-    const [artistNames, setArtistNames] = useState("");
+    const [trackNames, setTrackNames] = useState([]);
+    const [artistNames, setArtistNames] = useState([]);
 
 
     function handleSearchInput(e) {
@@ -55,9 +56,10 @@ export default function SearchContainer() {
 
 
     return (
-        <div>
-            <SearchBar searchInput={searchInput} setSearchInput={setSearchInput} handleSearchInput={handleSearchInput} handleSubmit={handleSubmit}/>
-            <Results searchInput={searchInput} trackNames={trackNames} artistNames={artistNames}/>
+        <div className="search-container">
+            <SearchBar className="search-bar" searchInput={searchInput} setSearchInput={setSearchInput} handleSearchInput={handleSearchInput} handleSubmit={handleSubmit}/>
+            <Results className="results" searchInput={searchInput} trackNames={trackNames} artistNames={artistNames}/>
+            <div>Other Panel</div>
         </div>
     )
 }
