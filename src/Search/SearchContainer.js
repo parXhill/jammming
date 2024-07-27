@@ -9,6 +9,9 @@ console.log(accessToken);
 export default function SearchContainer() {
 
     const [searchInput, setSearchInput] = useState("");
+    const [trackNames, setTrackNames] = useState("");
+    const [artistNames, setArtistNames] = useState("");
+
 
     function handleSearchInput(e) {
         setSearchInput(e.target.value);
@@ -34,11 +37,13 @@ export default function SearchContainer() {
         return response.json();
         })
         .then(data => {
-            const trackNames = data.tracks.items.map(track => track.name);
-            const artistNames = data.tracks.items.map(track => track.artists[0].name);
-            console.log(trackNames);
-            console.log(artistNames);
-            //console.log(data); // Handle the response data
+
+            const tracks = data.tracks.items.map(track => track.name);
+            const artists = data.tracks.items.map(track => track.artists[0].name);
+
+            setTrackNames(tracks);
+            setArtistNames(artists);
+   
         })
         .catch(error => {
         console.error('There was a problem with the fetch operation:', error);
@@ -46,10 +51,13 @@ export default function SearchContainer() {
 
     }
 
+
+
+
     return (
         <div>
             <SearchBar searchInput={searchInput} setSearchInput={setSearchInput} handleSearchInput={handleSearchInput} handleSubmit={handleSubmit}/>
-            <Results searchInput={searchInput}/>
+            <Results searchInput={searchInput} trackNames={trackNames} artistNames={artistNames}/>
         </div>
     )
 }
