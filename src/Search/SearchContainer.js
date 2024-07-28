@@ -6,7 +6,7 @@ import './SearchContainer.css';
 const accessToken = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
 
 
-export default function SearchContainer({setSelectedTrack}) {
+export default function SearchContainer({setSelectedTrack, selectedTrack}) {
 
     const [searchInput, setSearchInput] = useState("");
     const [trackNames, setTrackNames] = useState([]);
@@ -71,7 +71,7 @@ export default function SearchContainer({setSelectedTrack}) {
     return (
         <div className="search-container">
             <SearchBar className="search-bar" searchInput={searchInput} setSearchInput={setSearchInput} handleSearchInput={handleSearchInput} handleSubmit={handleSubmit}/>
-            <Results className="results" searchInput={searchInput} trackNames={trackNames} artistNames={artistNames} trackUris={trackUris} setSelectedTrack={setSelectedTrack} currentSearchItems={currentSearchItems}/>
+            <Results className="results" searchInput={searchInput} trackNames={trackNames} artistNames={artistNames} trackUris={trackUris} setSelectedTrack={setSelectedTrack} currentSearchItems={currentSearchItems} selectedTrack={selectedTrack}/>
             <div>Other Panel</div>
         </div>
     )

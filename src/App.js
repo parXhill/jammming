@@ -7,18 +7,17 @@ import React, {useState} from 'react';
 function App() {
 
   const [selectedTrack, setSelectedTrack] = useState(false);
-  const [currentStagedPlaylist, setCurrentStagedPlaylist] = useState([]);
+  const [currentPlaylist, setCurrentPlaylist] = useState([]);
 
-  //if (!currentStagedPlaylist.includes(selectedTrack.uri) && selectedTrack != false) {setCurrentStagedPlaylist(prev => [selectedTrack.uri, ...prev])}
-  //console.log("currentStagedPlaylist", currentStagedPlaylist);
+  if (!currentPlaylist.includes(selectedTrack.uri) && selectedTrack != false) {setCurrentPlaylist(prev => [selectedTrack.uri, ...prev])}
+  console.log("currentPlaylist", currentPlaylist);
 
-  console.log("selected Track:", selectedTrack)
-  
+
   return (
   <div className="app">
     <header className="header"><h1>Spotify Search</h1></header>
     <div className="section">
-    <SearchContainer setSelectedTrack={setSelectedTrack}/></div>
+    <SearchContainer setSelectedTrack={setSelectedTrack} selectedTrack={selectedTrack}/></div>
     <div className="section2">
     <PlaylistContainer selectedTrack={selectedTrack}/></div>
   </div>
@@ -26,11 +25,3 @@ function App() {
 }
 
 export default App;
-
-
-// App
-//SearchBar
-//SearchResults
-//Playlist
-//Tracklist
-//Track

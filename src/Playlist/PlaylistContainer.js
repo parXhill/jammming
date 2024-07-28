@@ -6,6 +6,8 @@ let newPlaylistId;
 
 export default function PlaylistContainer({selectedTrack}) {
 
+    console.log("hi from here");
+
     const userUrl = "https://api.spotify.com/v1/users/parkhilla/playlists";
 
     const newPlaylistData = {
@@ -14,7 +16,6 @@ export default function PlaylistContainer({selectedTrack}) {
     public: false
     };
 
-    console.log("in playlist container", selectedTrack)
     function createPlaylist() {
 
         fetch(userUrl, {
@@ -35,7 +36,6 @@ export default function PlaylistContainer({selectedTrack}) {
 
     function addToPlaylist() {
 
-        console.log("in function", selectedTrack)
 
         const playlistUrl = `https://api.spotify.com/v1/playlists/${newPlaylistId}/tracks?uris=${encodeURIComponent(selectedTrack.uri)}`;
         
