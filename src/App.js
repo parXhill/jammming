@@ -8,7 +8,10 @@ function App() {
   return (
   <div className="app">
     <header className="header"><h1>Spotify Search</h1></header>
-    <SearchContainer className="search-container"/>
+    <div className="section">
+    <SearchContainer/></div>
+    <div className="section2">
+    <SearchContainer/></div>
   </div>
   );
 }

@@ -1,28 +1,31 @@
 .app {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centers items horizontally */
-  justify-content: center; /* Centers items vertically */
-  border: 2px solid lime;
-  height: 100vh; /* Ensure it takes the full viewport height */
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+    "header header"
+    "section1 section2";
+  height: 100vh;
 }
 
 .header {
-  height: 10vh;
-  width: 100%;
-  border: 1px dotted black;
-  background-color: purple;
-  display: flex; /* Make header a flex container */
-  align-items: center; /* Center the content vertically */
-  justify-content: center; /* Center the content horizontally */
+  grid-area: header;
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  padding: 1rem;
 }
 
-.search-container {
-  border: 3px dotted pink;
-  background-color: lime;
-  width: 100px;
-  height: 50px;
-  display: flex; /* Make search-container a flex container */
-  flex-direction: horizontal;
-  align-items: center; /* Center the content horizontally */
+.section {
+  grid-area: section1;
+  padding: 2rem;
+  text-align: center;
+  background-color: pink;
+}
+
+.section2 {
+  grid-area: section2;
+  padding: 2rem;
+  text-align: center;
+  background-color: red;
 }
