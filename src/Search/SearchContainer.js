@@ -40,6 +40,9 @@ export default function SearchContainer() {
 
             const tracks = data.tracks.items.map(track => track.name);
             const artists = data.tracks.items.map(track => track.artists[0].name);
+            
+            console.log(data.tracks.items[0].name)
+            console.log(data.tracks.items[0].uri)
 
             setTrackNames(tracks);
             setArtistNames(artists);

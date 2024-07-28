@@ -31,8 +31,24 @@ export default function PlaylistContainer({}) {
             })
         .catch((error) => console.error('Error:', error));
     }
+
+    function addToPlaylist(trackUri) {
+
+        const playlistUrl = `https://api.spotify.com/v1/playlists/${newPlaylistId}/tracks?uris=${encodeURIComponent(trackUri)}`;
+        
+        fetch(playlistUrl, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${accessToken}`,
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => response.json())
+        .then(data => console.log('Success:', data))
+        .catch((error) => console.error('Error:', error));
+    }
         
     return (
 
-    <Playlist createPlaylist={createPlaylist}/>);
+    <Playlist createPlaylist={createPlaylist} addToPlaylist={addToPlaylist}/>);
 }
