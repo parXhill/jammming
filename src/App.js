@@ -9,9 +9,11 @@ function App() {
   const [selectedTrack, setSelectedTrack] = useState(false);
   const [currentStagedPlaylist, setCurrentStagedPlaylist] = useState([]);
 
-  if (!currentStagedPlaylist.includes(selectedTrack.uri) && selectedTrack != false) {setCurrentStagedPlaylist(prev => [selectedTrack.uri, ...prev])}
-  console.log("currentStagedPlaylist", currentStagedPlaylist);
+  //if (!currentStagedPlaylist.includes(selectedTrack.uri) && selectedTrack != false) {setCurrentStagedPlaylist(prev => [selectedTrack.uri, ...prev])}
+  //console.log("currentStagedPlaylist", currentStagedPlaylist);
 
+  console.log("selected Track:", selectedTrack)
+  
   return (
   <div className="app">
     <header className="header"><h1>Spotify Search</h1></header>

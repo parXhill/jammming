@@ -14,6 +14,7 @@ export default function PlaylistContainer({selectedTrack}) {
     public: false
     };
 
+    console.log("in playlist container", selectedTrack)
     function createPlaylist() {
 
         fetch(userUrl, {
@@ -34,6 +35,8 @@ export default function PlaylistContainer({selectedTrack}) {
 
     function addToPlaylist() {
 
+        console.log("in function", selectedTrack)
+
         const playlistUrl = `https://api.spotify.com/v1/playlists/${newPlaylistId}/tracks?uris=${encodeURIComponent(selectedTrack.uri)}`;
         
         fetch(playlistUrl, {
@@ -49,9 +52,36 @@ export default function PlaylistContainer({selectedTrack}) {
     }
     
     function removeFromPlaylist() {
-        
-    }
+  
+
+    fetch(`https://api.spotify.com/v1/playlists/${newPlaylistId}/tracks`, {
+    method: 'DELETE',
+    headers: {
+        'Authorization': `Bearer ${accessToken}`,
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        tracks: [
+        {
+            uri: selectedTrack.uri
+        }
+        ]
+    })
+    })
+    .then(response => {
+        if (!response.ok) {
+        throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Track removed successfully:', data);
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
+        }
     return (
 
-    <Playlist createPlaylist={createPlaylist} addToPlaylist={addToPlaylist}/>);
+    <Playlist createPlaylist={createPlaylist} addToPlaylist={addToPlaylist} removeFromPlaylist={removeFromPlaylist}/>);
 }
