@@ -4,7 +4,7 @@ import Playlist from './Playlist';
 const accessToken = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
 let newPlaylistId;
 
-export default function PlaylistContainer({}) {
+export default function PlaylistContainer({selectedTrack}) {
 
     const userUrl = "https://api.spotify.com/v1/users/parkhilla/playlists";
 

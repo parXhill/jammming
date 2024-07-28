@@ -6,7 +6,8 @@ import React, {useState} from 'react';
 
 function App() {
 
-  const [selectedTrack, setSelectedTrack] = useState();
+  const [selectedTrack, setSelectedTrack] = useState([]);
+  console.log("Selected track:", selectedTrack);
 
   return (
   <div className="app">
