@@ -4,7 +4,6 @@ import Results from "./Results";
 import './SearchContainer.css';
 
 const accessToken = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
-console.log(accessToken);
 
 
 export default function SearchContainer() {

@@ -1,8 +1,6 @@
 import './App.css';
 import SearchContainer from './Search/SearchContainer';
-import SearchBar from './Search/SearchBar';
-import Results from './Search/Results';
-
+import PlaylistContainer from './Playlist/PlaylistContainer';
 
 function App() {
   return (
@@ -11,7 +9,7 @@ function App() {
     <div className="section">
     <SearchContainer/></div>
     <div className="section2">
-    <SearchContainer/></div>
+    <PlaylistContainer/></div>
   </div>
   );
 }
