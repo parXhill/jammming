@@ -32,9 +32,9 @@ export default function PlaylistContainer({selectedTrack}) {
         .catch((error) => console.error('Error:', error));
     }
 
-    function addToPlaylist(trackUri) {
+    function addToPlaylist() {
 
-        const playlistUrl = `https://api.spotify.com/v1/playlists/${newPlaylistId}/tracks?uris=${encodeURIComponent(trackUri)}`;
+        const playlistUrl = `https://api.spotify.com/v1/playlists/${newPlaylistId}/tracks?uris=${encodeURIComponent(selectedTrack.uri)}`;
         
         fetch(playlistUrl, {
           method: 'POST',
@@ -47,7 +47,10 @@ export default function PlaylistContainer({selectedTrack}) {
         .then(data => console.log('Success:', data))
         .catch((error) => console.error('Error:', error));
     }
+    
+    function removeFromPlaylist() {
         
+    }
     return (
 
     <Playlist createPlaylist={createPlaylist} addToPlaylist={addToPlaylist}/>);

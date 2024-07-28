@@ -6,8 +6,11 @@ import React, {useState} from 'react';
 
 function App() {
 
-  const [selectedTrack, setSelectedTrack] = useState([]);
-  console.log("Selected track:", selectedTrack);
+  const [selectedTrack, setSelectedTrack] = useState(false);
+  const [currentStagedPlaylist, setCurrentStagedPlaylist] = useState([]);
+
+  if (!currentStagedPlaylist.includes(selectedTrack.uri) && selectedTrack != false) {setCurrentStagedPlaylist(prev => [selectedTrack.uri, ...prev])}
+  console.log("currentStagedPlaylist", currentStagedPlaylist);
 
   return (
   <div className="app">
