@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function SearchBar({searchInput, handleSearchInput, handleSubmit}) {
+export default function SearchBar({searchInput, handleSearchInput, handleSubmit, selectedTrack, setSelectedTrack, playlistItems, setPlaylistItems, searchItems, setSearchItems}) {
     
     return (
     <form onSubmit={handleSubmit} action="/search" method="GET">
