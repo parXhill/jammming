@@ -4,19 +4,18 @@ import Playlist from './Playlist';
 const accessToken = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
 let newPlaylistId;
 
-export default function PlaylistContainer({selectedTrack}) {
-
-    console.log("hi from here");
+export default function PlaylistContainer({selectedTrack, setSelectedTrack, playlistItems, setPlaylistItems, searchItems, setSearchItems}) {
 
     const userUrl = "https://api.spotify.com/v1/users/parkhilla/playlists";
 
-    const newPlaylistData = {
-    name: "Jammming Project1",
-    description: "Test1",
-    public: false
-    };
 
-    function createPlaylist() {
+    function createPlaylist(playlistName) {
+
+        const newPlaylistData = {
+            name: playlistName,
+            description: "Test1",
+            public: false
+            };
 
         fetch(userUrl, {
         method: 'POST',
@@ -36,8 +35,18 @@ export default function PlaylistContainer({selectedTrack}) {
 
     function addToPlaylist() {
 
+        let playlistUris = ""
 
-        const playlistUrl = `https://api.spotify.com/v1/playlists/${newPlaylistId}/tracks?uris=${encodeURIComponent(selectedTrack.uri)}`;
+        for (let i = 0; i < playlistItems.length; i++){
+            playlistUris += playlistItems[i].uri;
+            if (i !== playlistItems.length - 1){
+                playlistUris += ","
+            } 
+        }
+
+        console.log(playlistUris)
+
+        const playlistUrl = `https://api.spotify.com/v1/playlists/${newPlaylistId}/tracks?uris=${encodeURIComponent(playlistUris)}`;
         
         fetch(playlistUrl, {
           method: 'POST',
@@ -83,5 +92,5 @@ export default function PlaylistContainer({selectedTrack}) {
         }
     return (
 
-    <Playlist createPlaylist={createPlaylist} addToPlaylist={addToPlaylist} removeFromPlaylist={removeFromPlaylist}/>);
+    <Playlist setPlaylistItems={setPlaylistItems} playlistItems={playlistItems} setSearchItems={setSearchItems} searchItems={searchItems} setSelectedTrack={setSelectedTrack} selectedTrack={selectedTrack} createPlaylist={createPlaylist} addToPlaylist={addToPlaylist} removeFromPlaylist={removeFromPlaylist}/>);
 }

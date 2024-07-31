@@ -6,13 +6,9 @@ import './SearchContainer.css';
 const accessToken = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
 
 
-export default function SearchContainer({setSelectedTrack, selectedTrack}) {
+export default function SearchContainer({selectedTrack, setSelectedTrack, playlistItems, setPlaylistItems, searchItems, setSearchItems}) {
 
     const [searchInput, setSearchInput] = useState("");
-    const [trackNames, setTrackNames] = useState([]);
-    const [artistNames, setArtistNames] = useState([]);
-    const [trackUris, setTrackUris] = useState([]);
-    const [currentSearchItems, setCurrentSearchItems] = useState([]);
 
     function selectTrack({target}) {
         setSelectedTrack(target.uri);
@@ -42,20 +38,8 @@ export default function SearchContainer({setSelectedTrack, selectedTrack}) {
         return response.json();
         })
         .then(data => {
-            
 
-            const tracks = data.tracks.items.map(track => track.name);
-            const artists = data.tracks.items.map(track => track.artists[0].name);
-            const uris = data.tracks.items.map(track => track.uri);
-
-
-            console.log(data.tracks.items[0].name)
-            console.log(data.tracks.items[0].uri)
-
-            setTrackNames(tracks);
-            setArtistNames(artists);
-            setTrackUris(uris);
-            setCurrentSearchItems(data.tracks.items);
+            setSearchItems(data.tracks.items);
             
    
         })
@@ -70,8 +54,8 @@ export default function SearchContainer({setSelectedTrack, selectedTrack}) {
 
     return (
         <div className="search-container">
-            <SearchBar className="search-bar" searchInput={searchInput} setSearchInput={setSearchInput} handleSearchInput={handleSearchInput} handleSubmit={handleSubmit}/>
-            <Results className="results" searchInput={searchInput} trackNames={trackNames} artistNames={artistNames} trackUris={trackUris} setSelectedTrack={setSelectedTrack} currentSearchItems={currentSearchItems} selectedTrack={selectedTrack}/>
+            <SearchBar className="search-bar" searchInput={searchInput} setSearchInput={setSearchInput} handleSearchInput={handleSearchInput} handleSubmit={handleSubmit} setPlaylistItems={setPlaylistItems} playlistItems={playlistItems} setSearchItems={setSearchItems} searchItems={searchItems} setSelectedTrack={setSelectedTrack} selectedTrack={selectedTrack}/>
+            <Results className="results" searchInput={searchInput}  setSelectedTrack={setSelectedTrack} selectedTrack={selectedTrack} setPlaylistItems={setPlaylistItems} playlistItems={playlistItems} setSearchItems={setSearchItems} searchItems={searchItems}/>
             <div>Other Panel</div>
         </div>
     )
