@@ -1,7 +1,7 @@
 import React from 'react';
 import Playlist from './Playlist';
 
-//const accessToken = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
+const accessToken = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
 let newPlaylistId;
 
 export default function PlaylistContainer({selectedTrack, setSelectedTrack, playlistItems, setPlaylistItems, searchItems, setSearchItems}) {
