@@ -10,10 +10,6 @@ export default function SearchContainer({selectedTrack, setSelectedTrack, playli
 
     const [searchInput, setSearchInput] = useState("");
 
-    function selectTrack({target}) {
-        setSelectedTrack(target.uri);
-    };
-
     function handleSearchInput(e) {
         setSearchInput(e.target.value);
     };
