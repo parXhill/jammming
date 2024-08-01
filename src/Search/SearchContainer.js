@@ -3,7 +3,7 @@ import SearchBar from "./SearchBar";
 import Results from "./Results";
 import './SearchContainer.css';
 
-const accessToken = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
+//const accessToken = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
 
 
 export default function SearchContainer({selectedTrack, setSelectedTrack, playlistItems, setPlaylistItems, searchItems, setSearchItems}) {
