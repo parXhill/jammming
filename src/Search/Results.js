@@ -4,17 +4,17 @@ import "./Results.css";
 export default function Results({setSelectedTrack, selectedTrack, playlistItems, setPlaylistItems, searchItems, setSearchItems}) {
     return (
 
-        <div>
+        <div className='resultsBox'>
         {searchItems.map((track, index) => (
-          <div className={`${selectedTrack.uri === track.uri ? "trackbox": "selected-box"}`} key={index}>
-            <div><h5>{track.name}</h5></div>
+          <div id="boxes" className="trackbox" key={index}>
+            <h5>{track.name}</h5>
             <h6>{track.artists[0].name}</h6>
             <button onClick={() => {
               setSelectedTrack(track)
               setPlaylistItems(prev => [track ,...prev])
               setSearchItems(prev => prev.filter(item => item !== track))
              }
-            }>Add</button>
+            }>+</button>
           </div>
         ))}
       </div>

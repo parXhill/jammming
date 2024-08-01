@@ -1,0 +1,16 @@
+#playlistButton{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#playlistResults{
+
+    background-color: rgba(133, 43, 218, 0.916);
+}
+
+#playlistEntryBox{
+    background-color: rgba(81, 5, 102, 0.628);
+    border-radius: 30px;
+    width: 110%;
+    padding: 1rem;
+}

@@ -1,7 +1,47 @@
-.trackbox{
-    background-color: purple
+.resultsBox{
+    background-color: rgba(103, 2, 103, 0.879);
+    border-radius: 40px;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    margin-top: 1vw;
+    color:white;
 }
 
-.selected-box{
-    background-color: lime;
+.trackbox {
+    font-size: 1.5rem;
+    font-weight: 300;
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "title button"
+        "artist button";
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
+}
+
+#boxes:hover{
+    background-color: rgba(255, 255, 255, 0.143);
+}
+
+h5 {
+    font-weight: 400;
+    grid-area: title;
+    text-align: center;
+    margin: 0;
+}
+
+h6 {
+    font-weight: 200;
+    grid-area: artist;
+    text-align: center;
+    margin: 0;
+}
+
+button {
+    grid-area: button;
+    margin: 0;
+    padding: 10px 20px;
 }

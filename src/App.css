@@ -6,26 +6,101 @@
     "header header"
     "section1 section2";
   height: 100vh;
+  background-image: url("https://i.ibb.co/2Z8GDVY/17154fcc-b860-4d72-816b-d17686232b92.jpg");
+  background-repeat: repeat;            /* Repeat the image in both directions */
+  background-size: 1000px 1000px; 
+  min-height: 1000px;          /* Set the size of the repeating image */
+  height: 100%;  
+  font-family: "Kanit";
+}
+
+h1{
+  font-size: 3rem;
+}
+
+h2{
+  color: white;
+  font-size: 2rem;
 }
 
 .header {
   grid-area: header;
-  background-color: #4CAF50;
   color: white;
   text-align: center;
   padding: 1rem;
 }
 
+
+
 .section {
   grid-area: section1;
-  padding: 2rem;
   text-align: center;
-  background-color: pink;
 }
 
 .section2 {
   grid-area: section2;
-  padding: 2rem;
+  display: flex;
+  justify-content: center;
   text-align: center;
-  background-color: red;
+}
+
+
+/* Reset default button styles */
+button {
+  appearance: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  background-color: #852584c8; /* Flat color */
+  color: white; /* Text color */
+  padding: 10px 20px; /* Padding */
+  border: none; /* No border */
+  border-radius: 5px; /* Slightly rounded corners (optional) */
+  font-size: 16px; /* Font size */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover effect */
+button:hover {
+  background-color: #2980b9; /* Darker shade for hover */
+}
+
+/* Disabled state */
+button:disabled {
+  background-color: #138edf; /* Disabled color */
+  cursor: not-allowed; /* Not-allowed cursor */
+}
+
+/* Reset default input styles */
+input {
+  appearance: none;
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  width: 80%;
+  box-sizing: border-box;
+  background-color: #ffffff; /* Light background color */
+  color: #2c3e50; /* Text color */
+  padding: 10px 15px; /* Padding */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
+}
+
+/* Hover effect */
+input:hover {
+  background-color: #dcdde1; /* Slightly darker background on hover */
+}
+
+/* Focus effect */
+input:focus {
+  background-color: #ffffff; /* White background on focus */
+  border: 2px solid #3498db; /* Blue border on focus */
+}
+
+/* Placeholder styles */
+input::placeholder {
+  color: #95a5a6; /* Placeholder text color */
+  opacity: 1; /* Ensure full opacity */
 }

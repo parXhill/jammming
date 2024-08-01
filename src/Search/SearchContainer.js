@@ -56,7 +56,6 @@ export default function SearchContainer({selectedTrack, setSelectedTrack, playli
         <div className="search-container">
             <SearchBar className="search-bar" searchInput={searchInput} setSearchInput={setSearchInput} handleSearchInput={handleSearchInput} handleSubmit={handleSubmit} setPlaylistItems={setPlaylistItems} playlistItems={playlistItems} setSearchItems={setSearchItems} searchItems={searchItems} setSelectedTrack={setSelectedTrack} selectedTrack={selectedTrack}/>
             <Results className="results" searchInput={searchInput}  setSelectedTrack={setSelectedTrack} selectedTrack={selectedTrack} setPlaylistItems={setPlaylistItems} playlistItems={playlistItems} setSearchItems={setSearchItems} searchItems={searchItems}/>
-            <div>Other Panel</div>
         </div>
     )
 }
